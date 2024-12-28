@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sandbox
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:/seed.sql
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8081/realms/sandbox/protocol/openid-connect/certs
