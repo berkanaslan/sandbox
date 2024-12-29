@@ -6,6 +6,8 @@ services:
       POSTGRES_DB: sandbox
       POSTGRES_PASSWORD: secret
       POSTGRES_USER: dbadmin
+    volumes:
+      - ../scripts/database:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
 
@@ -15,14 +17,18 @@ services:
     environment:
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
-      DB_VENDOR: POSTGRES
-      DB_ADDR: postgres
-      DB_DATABASE: sandbox_keycloak
-      DB_USER: dbadmin
-      DB_PASSWORD: secret
+      KC_DB: postgres
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_DATABASE: sandbox
+      KC_DB_SCHEMA: keycloak
+      KC_DB_USERNAME: dbadmin
+      KC_DB_PASSWORD: secret
+      KEYCLOAK_IMPORT: /opt/keycloak/data/import/sandbox_realm.json
     ports:
       - "8081:8080"
     command:
       - start-dev
+    volumes:
+      - ../scripts/keycloak:/opt/keycloak/data/import
     depends_on:
       - postgres

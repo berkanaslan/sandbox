@@ -32,6 +32,8 @@ export class HomeComponent {
     }
 
     this.isLoading = true;
+    this.error = undefined;
+    this.pingResponse = undefined;
 
     this.pingService.ping().subscribe({
       next: (response) => {
