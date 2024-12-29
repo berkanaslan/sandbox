@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class PingController {
 
-    private final PingRepository pingRepository;
-
     @GetMapping
-    public Iterable<Ping> ping() {
-        return pingRepository.findAll();
+    public Ping ping() {
+        return new Ping();
     }
 }

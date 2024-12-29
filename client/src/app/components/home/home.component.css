@@ -1,39 +1,12 @@
-.navbar {
-    padding: 1rem 0;
-  }
-  
-  .avatar-small {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: #f8f9fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .dropdown-header {
-    padding: 1rem;
-    background-color: #f8f9fa;
-  }
-  
-  .dropdown-item {
-    padding: 0.5rem 1rem;
-  }
-  
-  .dropdown-item:hover {
-    background-color: #f8f9fa;
-  }
-  
-  .navbar-brand {
-    font-size: 1.5rem;
-  }
-  
-  .nav-link {
-    padding: 0.5rem 1rem;
-    transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
-    color: var(--bs-primary);
-  }
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+button {
+  border-radius: 2rem;
+  min-height: 3rem;
+  min-width: 6rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}

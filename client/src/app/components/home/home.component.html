@@ -1,9 +1,35 @@
-<!-- User info -->
-<div>
-    <h1>User info</h1>
-    <p>Email: {{ user.email }}</p>
-    <p>Name: {{ user.name }}</p>  
-    <p>ID: {{ user.sub }}</p>
+<app-header></app-header>
 
-    <button (click)="logout()">Logout</button>
+<div class="container-fluid text-center py-5">
+  <h1 class="display-3 fw-bold">You can ping the server now.</h1>
+  <button class="btn btn-dark btn-lg mt-4" (click)="ping()">
+      @if (isLoading) {
+        <div class="spinner-border spinner-border-sm text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      } @else {
+        Ping
+      }
+  </button>
+
+  @if (pingResponse) {
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="alert alert-success mt-4" role="alert">
+          <span>Server responded at {{ pingResponse.timestamp | date:'medium' }}</span>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (error) {
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="alert alert-danger mt-4" role="alert">
+          <span>{{ error }}</span>
+        </div>
+      </div>
+    </div>
+  }
+  
 </div>

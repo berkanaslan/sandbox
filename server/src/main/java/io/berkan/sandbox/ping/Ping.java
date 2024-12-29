@@ -1,18 +1,12 @@
 package io.berkan.sandbox.ping;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
+import jakarta.persistence.Transient;
+import lombok.Data;
 
-@Entity
-@Getter
+import java.time.LocalDateTime;
+
+@Data
 public class Ping {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String message;
+    @Transient
+    private LocalDateTime timestamp = LocalDateTime.now();
 }
