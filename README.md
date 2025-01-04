@@ -34,10 +34,13 @@ This sandbox environment provides developers with a hands-on experience to:
 
 
 ### Docker
-Run the docker compose file to start PostgreSQL and Keycloak. Import sandbox realm from the scripts/keycloak/sandbox_realm.json file if it is not imported by Docker.
+Run the docker compose file to start PostgreSQL and Keycloak. Import sandbox realm from the scripts/keycloak/sandbox-realm.json file if it is not imported by Docker.
+
+GitHub OAuth app is used in this project for identity provider testing. You need to create a client in GitHub developer settings and set the client id and client secret in the sandbox-realm.json file.
+Find {{your-client-id}} and {{your-client-secret}} in the sandbox-realm.json file and replace them with your GitHub client id and client secret.
 
 ```sh
-docker exec -it keycloak /opt/keycloak/bin/kc.sh import --file /opt/keycloak/data/import/sandbox_realm.json
+docker exec -it keycloak-sandbox /opt/keycloak/bin/kc.sh import --file /opt/keycloak/data/import/sandbox-realm.json
 ```
 
 ### Run the client 

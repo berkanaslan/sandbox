@@ -32,3 +32,10 @@ services:
       - ../scripts/keycloak:/opt/keycloak/data/import
     depends_on:
       - postgres
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: mailhog-sandbox
+    ports:
+      - "8025:8025"
+      - "1025:1025"
