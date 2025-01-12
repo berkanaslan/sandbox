@@ -2,6 +2,10 @@ spring:
   application:
     name: sandbox
 
+  docker:
+    compose:
+      file: server/compose.yaml
+
   jpa:
     hibernate:
       ddl-auto: create-drop

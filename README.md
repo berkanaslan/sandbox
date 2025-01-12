@@ -43,6 +43,8 @@ Find `{{your-client-id}}` and `{{your-client-secret}}` in the sandbox-realm.json
 docker exec -it keycloak-sandbox /opt/keycloak/bin/kc.sh import --file /opt/keycloak/data/import/sandbox-realm.json
 ```
 
+Delete `.realm_imported` file in the `keycloak` folder if you want to re-import the realm.
+
 ### Run the client 
 Run the client with the following command:
 

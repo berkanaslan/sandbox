@@ -26,7 +26,7 @@ services:
       KEYCLOAK_IMPORT: /opt/keycloak/data/import/sandbox_realm.json
     ports:
       - "8081:8080"
-    entrypoint: ["/bin/sh", "-c", "/opt/keycloak/bin/kc.sh import --file /opt/keycloak/data/import/sandbox-realm.json && /opt/keycloak/bin/kc.sh start-dev"]
+    entrypoint: ["/bin/sh", "-c", "if [ ! -f /opt/keycloak/data/import/.realm_imported ]; then /opt/keycloak/bin/kc.sh import --file /opt/keycloak/data/import/sandbox-realm.json && touch /opt/keycloak/data/import/.realm_imported; fi && /opt/keycloak/bin/kc.sh start-dev"]
     volumes:
       - ../scripts/keycloak:/opt/keycloak/data/import
     depends_on:
